@@ -32,13 +32,13 @@ ALLOWED_HOSTS = ['127.0.0.1','regis-a.herokuapp.com']
 # Application definition
 
 INSTALLED_APPS = [
+    'contact.apps.ContactConfig'
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'contact',
 ]
 
 MIDDLEWARE = [
@@ -121,14 +121,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
-
-PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
-MEDIA_URL = '/media/'
-MEDIA_ROOT= os.path.join(BASE_DIR,'media')
-
-
-
-
+STATICFILES_DIR = [BASE_DIR / "static"]
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 django_heroku.settings(locals())
